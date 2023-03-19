@@ -1,3 +1,6 @@
+window.addEventListener("load", (event) => {
+  updateCartVisual(document.getElementById("shopping-cart"));
+});
 function waitForElm(selector) {
   return new Promise((resolve) => {
     if (document.querySelector(selector)) {
