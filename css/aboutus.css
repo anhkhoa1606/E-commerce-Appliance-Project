@@ -10,6 +10,10 @@
   margin: 35px;
 }
 
+.text h2{
+  padding: 0;
+}
+
 .cardsRow{
   padding: 20px;
 }
@@ -56,4 +60,9 @@
 
 h1{
   padding: 5px;
+  font-size:35px;
+}
+
+p{
+  font-size:20px;
 }
