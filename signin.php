@@ -16,21 +16,22 @@
 
 <body>
 
-    <div class="menu-bar">
+    <!-- <div class="menu-bar">
         <div>
             <a href="signup.php">Sign Up</a>
         </div>
         <div>
             <a href="signin.php">Sign In</a>
         </div>
-    </div>
-
+    </div> -->
+    <div class="signin-container">
     <!-- Sing in  Form -->
     <section class="sign-in" action="" method="post">
         <div class="container">
             <div class="signin-content">
                 <div class="signin-image">
                     <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
+                    <a href="signup.php" class="signup-image-link">I don't have an account</a>
                 </div>
 
                 <div class="signin-form">
@@ -60,7 +61,7 @@
             </div>
         </div>
     </section>
-
+    </div>
 </body>
 
 </html>
@@ -68,7 +69,7 @@
 <?php
 session_start();
 
-require __DIR__ . './functions.php';
+require __DIR__ . '/functions.php';
 
 if (isset($_POST['signIn'])) {
 

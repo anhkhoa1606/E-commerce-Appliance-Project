@@ -41,14 +41,14 @@
 
 
 <body>
-    <div class="menu-bar">
+    <!-- <div class="menu-bar">
         <div>
             <a href="signup.php">Sign Up</a>
         </div>
         <div>
             <a href="signin.php">Sign In</a>
         </div>
-    </div>
+    </div> -->
     <form class="signup" action="" method="post">
         <div class="container">
             <div class="signup-content">
@@ -95,7 +95,7 @@
 <?php
 session_start();
 
-require __DIR__ . './functions.php';
+require __DIR__ . '/functions.php';
 
 if (isset($_POST['signUp'])) {
 
