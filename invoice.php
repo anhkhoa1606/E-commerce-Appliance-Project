@@ -9,7 +9,7 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key={MAPKEY}" type="text/javascript"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqxE1lTQ3YsUjGs9lJpkD1hp8Q_bsi-KA&callback=initMap&libraries=places&v=weekly" type="text/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
@@ -18,7 +18,6 @@
 
     <script type="text/javascript" src="./js/controller.js"></script>
     <script type="text/javascript" src="./js/drag.js"></script>
-
 
     <?php require_once('getUserAddress.php'); ?>
 
@@ -32,7 +31,7 @@
             <h1>Invoice</h1>
             <div id="order"><button onclick="submitOrder('<?php echo $_GET['branch'] ?>', '<?php echo $_GET['shipment-time'] ?>'), window.location.href='./payment.php'" style="font-size: 20px">Place Your Order</button></div>
 
-
+            
             <div class="cart">
                 <div style="display: flex; position: absolute;">
 
@@ -47,97 +46,119 @@
                         <div id="result">Distance from branch to your location is <b id="distance"></b></div>
                     </div>
                 </div>
-
-
-
-
-
             </div>
             <div id="results" style="background-color:red"></div>
+            <div id="floating-panel">
+                <b>Selected Branch: </b>
+                <?php 
+                    $start = $_GET['branch'];
+                    echo $start;
+                ?>
+                
 
 
+                <b>Destination: </b>
+                <input id="end_loc" placeholder="Enter your Address..."/>
+                <input id="destination" name="destination" required="" type="hidden"/>
+     
+            </div>   
+            
 
 
             <script>
-                $(function() {
-
+                $(function () {
                     var origin, destination, map;
 
-
-                    // add input listeners
-                    google.maps.event.addDomListener(window, 'load', function(listener) {
-                        // setDestination();
+                    google.maps.event.addDomListener(window, 'load', function(listener)
+                    {
+                        setDestination();
                         initMap();
                     });
 
-                    // init or load map
                     function initMap() {
+                        var myLatLng = {lat:43.6532, lng:-79.3832 };
+                        map = new google.maps.Map(document.getElementById('map'), {zoom: 16, center: myLatLng});
+                    
+                    directionsRenderer.setMap(map);
 
-                        var myLatLng = {
-                            lat: 43.65924372894913,
-                            lng: -79.38030177747302
-                        };
-                        map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 16,
-                            center: myLatLng,
+                    const onChangeHandler = function () {
+                    calculateAndDisplayRoute(directionsService, directionsRenderer);
+                    };
+
+                    document.getElementById("start_loc").addEventListener("change", onChangeHandler);
+                    document.getElementById("end_loc").addEventListener("change", onChangeHandler);
+                    }
+                                    
+                    function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+                    directionsService
+                    .route({
+                        origin: {
+                        query: document.getElementById("start_loc").value,
+                        },
+                        destination: {
+                        query: document.getElementById("end_loc").value,
+                        },
+                        travelMode: google.maps.TravelMode.DRIVING,
+                    })
+                    .then((response) => {
+                        directionsRenderer.setDirections(response);
+                    })
+                    .catch((e) => window.alert("Directions request failed due to " + status));
+                    }
+
+                    window.initMap = initMap;
+                    function setDestination() {
+                        var start_loc = new google.maps.places.Autocomplete(document.getElementById('start_loc'));
+                        var end_loc = new google.maps.places.Autocomplete(document.getElementById('end_loc'));
+
+                        google.maps.event.addListener(start_loc, 'place_changed', function () {
+                            var start_locs = start_loc.getPlace();
+                            var start_address = start_locs.formatted_address;
+                            $('#origin').val(start_address)
+                        });
+
+                        google.maps.event.addListener(end_loc, 'place_changed', function () {
+                            var end_locs = end_loc.getPlace();
+                            var end_address = end_locs.formatted_address;
+                            $('#destination').val(end_address)
                         });
                     }
 
-                    function displayRoute(origin, destination, directionsService, directionsDisplay) {
-
+                    function displayRoute(travel_mode, origin, destination, directionsService, directionsDisplay) {
                         directionsService.route({
-
-                            origin: "<?php echo $_GET['branch'] ?>",
-                            destination: "<?php echo func1($_SESSION['user_id']) ?>",
-                            travelMode: "DRIVING",
-                            avoidTolls: true
-                        }, function(response, status) {
-                            if (status === 'OK') {
-                                directionsDisplay.setMap(map);
-                                directionsDisplay.setDirections(response);
-                            } else {
-                                directionsDisplay.setMap(null);
-                                directionsDisplay.setDirections(null);
-                                alert('Could not display directions due to: ' + status);
-                            }
-                        });
-                    }
-
-
-                    window.onload = (function(e) {
-
-
-
-
-                        e.preventDefault();
-                        var origin = "<?php echo $_GET['branch'] ?>";
-                        var destination = "<?php echo func1($_SESSION['user_id']) ?>";
-                        console.log("<?php echo func1($_SESSION['user_id']) ?>");
-                        var directionsDisplay = new google.maps.DirectionsRenderer({
-                            'draggable': true
-                        });
-                        var directionsService = new google.maps.DirectionsService();
-                        displayRoute(origin, destination, directionsService, directionsDisplay);
-                        calculateDistance(origin, destination);
-                        populateTable()
+                        origin: start_loc,
+                        destination: end_loc,
+                        travelMode: DRIVING,
+                        avoidTolls: true
+                    }, function (response, status) {
+                        if (status === 'OK') {
+                        directionsDisplay.setMap(map);
+                        directionsDisplay.setDirections(response);
+                        } 
+                        else {
+                            directionsDisplay.setMap(null);
+                            directionsDisplay.setDirections(null);
+                            alert('Could not display directions due to: ' + status);
+                        }
                     });
+                }
 
-
-
-
-                    function calculateDistance(origin, destination) {
+                    // calculate distance , after finish send result to callback function
+                    function calculateDistance(travel_mode, origin, destination) {
                         var DistanceMatrixService = new google.maps.DistanceMatrixService();
-                        DistanceMatrixService.getDistanceMatrix({
-                            origins: [origin],
-                            destinations: [destination],
-                            travelMode: google.maps.TravelMode["DRIVING"],
-                            unitSystem: google.maps.UnitSystem.metric, // kilometers and meters.
-                            avoidHighways: false,
-                            avoidTolls: false
-                        }, save_results);
+                        DistanceMatrixService.getDistanceMatrix(
+                            {
+                                origins: [origin],
+                                destinations: [destination],
+                                travelMode: google.maps.TravelMode.DRIVING,
+                                unitSystem: google.maps.UnitSystem.metric,
+                                avoidHighways: false,
+                                avoidTolls: false
+                            }, save_results);
                     }
 
-                    // save distance results
+                
+                  
                     function save_results(response, status) {
 
                         if (status != google.maps.DistanceMatrixStatus.OK) {
@@ -151,26 +172,33 @@
                                 var distance = response.rows[0].elements[0].distance;
                                 var duration = response.rows[0].elements[0].duration;
                                 var distance_in_kilo = distance.value / 1000; // the kilo meter
-                                var distance_in_mile = distance.value / 1609.34; // the mile
                                 var duration_text = duration.text;
                                 appendResults(distance_in_kilo, distance_in_mile, duration_text);
                             }
+                                }
                         }
-                    }
+                                        
 
-                    // append html results
+
                     function appendResults(distance_in_kilo, distance_in_mile, duration_text) {
                         console.log(distance_in_kilo);
                         $('#distance').html(distance_in_kilo + "km");
                     }
 
-
-
                 });
-            </script>
+                
 
+
+           
+        
+                   
+                    
+
+
+        
+            </script>
+        
         </div>
 
-    </body>
-
+        
     </html>
