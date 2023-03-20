@@ -282,7 +282,7 @@
                     <div class="col col-sm-3">
                         <h3 style="text-align: center;"><u>Shopping Cart</u></h3>
                         <button type="button" class="btn btn-primary" onclick="clearCart()">Clear Cart</button>
-                        <div class="topright shopping-cart" id="flex-child" ondrop="drop(event)"
+                        <div class="topright shopping-cart" id="shopping-cart" ondrop="drop(event)"
                             ondragover="allowDrop(event)">
                             
                         </div>
@@ -291,12 +291,12 @@
             </div>
         </div>
 
-        <div class="bottomleft">
+        <!-- <div class="bottomleft">
             <h4 style="color: white; text-align: center;">Item Has Been Added To Your Cart</h4>
         </div>
         <div class="max-items">
             <h4 style="color: white; text-align: center;">Max quantity is 5 items</h4>
-        </div>
+        </div> -->
 
         </div>
 

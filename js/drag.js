@@ -1,5 +1,8 @@
 window.addEventListener("load", (event) => {
-  updateCartVisual(document.getElementById("shopping-cart"));
+  if(document.getElementById("shopping-cart"))
+  {
+    updateCartVisual(document.getElementById("shopping-cart"));
+  }
 });
 function waitForElm(selector) {
   return new Promise((resolve) => {
@@ -83,6 +86,7 @@ function updateCart(item_id, name, price) {
       addedItemNotification();
     }
   }
+  updateCartVisual(document.getElementById("shopping-cart"));
 }
 
 function populateTable() {
@@ -189,12 +193,13 @@ function updateItemQuantity(elm) {
 
 function updateCartVisual(target)
 {
+  target.innerHTML = "";
   if(localStorage.getItem("Cart")){
     let itemList = JSON.parse(localStorage.getItem("Cart"));
-    target.innerHTML = "";
     for (let i = 0; i < itemList.length; i++) {
       
       const div = document.createElement("div");
+      div.classList.add("cart-item");
       const name = document.createElement("h2");
       name.innerHTML = itemList[i]["name"];
       const quantity = document.createElement("p");
@@ -230,7 +235,7 @@ function drop(ev) {
     Number(data.split("_")[3])
   );
 
-  updateCartVisual(ev.target);
+  updateCartVisual(document.getElementById("shopping-cart"));
 
   ev.stopPropagation();
   return false;
