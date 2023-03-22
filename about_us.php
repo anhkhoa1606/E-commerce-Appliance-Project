@@ -20,7 +20,7 @@
   include('bar.php')
   ?>
 
-  <div style="text-align:center;">
+  <div style="text-align:center;margin-bottom:4%;">
     <div class="header">
       <h1 style="font-size:100px;color:lightcoral;">Smart Customer Services </h1>
       <h2>All appliances you need in one place.</h2>
@@ -87,11 +87,17 @@
         Orders can be returned within 60 days of purchaase. Damage returns are not accepted.
       </p>
     </div>
-    
+
     <h1>Customer Reviews</h2>
     <p>What our customers say about us.</p>
     <button class="buttonContact" onclick="window.location.href='reviews.php'">Reviews</button>
   </div>
+
+  <!-- Footer to display browser information-->
+  <div class="text-center fixed-bottom opacity-25 mt-3 pt-3 px-4">
+    <p class="fs-6" id="footerText"></p>
+  </div>
+  <script src="./js/websiteInfo.js"></script>
 
 </body>
 

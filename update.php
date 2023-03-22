@@ -228,6 +228,12 @@
       $("#seeAnotherField").trigger("change");
     </script>
 
+    <!-- Footer to display browser information-->
+    <div class="text-center fixed-bottom opacity-25 mt-3 pt-3 px-4">
+      <p class="fs-6" id="footerText"></p>
+    </div>
+    <script src="./js/websiteInfo.js"></script>
+
   </body>
 
 </div>
