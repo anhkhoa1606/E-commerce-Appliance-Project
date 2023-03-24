@@ -1,4 +1,4 @@
-#right-panel {
+/* #right-panel {
   font-family: 'Roboto','sans-serif';
   line-height: 30px;
   padding-left: 10px;
@@ -34,7 +34,7 @@ html, body {
 .panel {
   height: 100%;
   overflow: auto;
-}
+} */
 /* end of maps  */
 #add2cord,
 #cord2add {
@@ -43,7 +43,12 @@ html, body {
   text-align: center;
   margin: auto;
 }
+#map {
+  height: 100%;
+  float: left;
+  width: 100%;
 
+}
 #container {
   /* align-content: center;
 text-align: center; */
