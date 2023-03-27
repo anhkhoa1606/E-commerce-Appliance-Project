@@ -1,58 +1,9 @@
-/* #right-panel {
-  font-family: 'Roboto','sans-serif';
-  line-height: 30px;
-  padding-left: 10px;
-}
-
-#right-panel select, #right-panel input {
-  font-size: 15px;
-}
-
-#right-panel select {
-  width: 100%;
-}
-
-#right-panel i {
-  font-size: 12px;
-}
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
 #map {
   height: 100%;
   float: left;
   width: 100%;
-
-}
-#right-panel {
-  float: right;
-  width: 100%;
-  height: 100%;
-}
-.panel {
-  height: 100%;
-  overflow: auto;
-} */
-/* end of maps  */
-#add2cord,
-#cord2add {
-  height: 100px;
-  width: 500px;
-  text-align: center;
-  margin: auto;
-}
-#map {
-  height: 100%;
-  float: left;
-  width: 100%;
-
 }
 #container {
-  /* align-content: center;
-text-align: center; */
-
   justify-content: center;
   display: flex;
   height: 100%;
@@ -111,7 +62,6 @@ body {
 #title {
   max-height: 100px;
   width: 1200px;
-  /* position: absolute; */
   text-align: center;
   margin: 0;
 }
@@ -136,7 +86,6 @@ td {
 #order {
   height: 50px;
   position: absolute;
-  /* display: inline-flex; */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -158,7 +107,6 @@ td {
   text-align: center;
   margin-top: 2em;
   margin-left: 5em;
-  /* margin-top: 500px; */
 }
 
 .maps-container {
@@ -181,11 +129,13 @@ td {
   padding-left: 10px;
 }
 
-input, select, submit {
-            width: 200px;
-            height: 25px;
-            margin: 2px;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-        }
+input,
+select,
+submit {
+  width: 200px;
+  height: 25px;
+  margin: 2px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
