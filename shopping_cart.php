@@ -8,11 +8,8 @@
 
 <script type="text/javascript" src="./js/controller.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 
 <script type="text/javascript" src="./js/drag.js"></script>
@@ -20,8 +17,6 @@
 <script type="text/javascript">
     window.onload = (function() {
         populateTable()
-
-        console.log("uiysgdfgg")
 
         localStorage.setItem("userID", <?php session_start();
                                         $user_id = $_SESSION['user_id'];
@@ -40,21 +35,21 @@
 
         <div id="results">
 
-            <div id="title">
+            <div id="title" class="mb-3">
                 <h1>Shopping Cart</h1>
             </div>
 
             <div class="cart">
 
                 <div>
-                    <table id="shopping-cart">
+                    <table class="table table-bordered table-hover" id="shopping-cart">
 
                     </table>
                 </div>
 
 
 
-                <div class="shopping-info">
+                <div class="shopping-info bg-light p-3 rounded">
 
                     <form action="./invoice.php">
                         <p>Please select branch to ship from:</p>
@@ -72,7 +67,7 @@
 
                         <br><br>
 
-                        <input type="submit" value="Proceed to checkout" onclick="sendPost()">
+                        <button type="submit" class="btn btn-primary" onclick="sendPost()">Proceed to checkout</button>
                     </form>
 
                 </div>

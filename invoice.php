@@ -10,7 +10,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyAqxE1lTQ3YsUjGs9lJpkD1hp8Q_bsi-KA" type="text/javascript"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/controller.js"></script>
     <script type="text/javascript" src="./js/drag.js"></script>
 
@@ -24,15 +25,15 @@
         include('bar.php')
         ?>
         <div id="container">
-            <h1>Invoice</h1>
-            <div id="order"><button onclick="submitOrder('<?php echo $_GET['branch'] ?>', '<?php echo $_GET['shipment-time'] ?>'), window.location.href='./payment.php'" style="font-size: 20px">Place Your Order</button></div>
+            <h1 class="mb-3">Invoice</h1>
+            <div id="order"><button class="btn btn-primary" onclick="submitOrder('<?php echo $_GET['branch'] ?>', '<?php echo $_GET['shipment-time'] ?>'), window.location.href='./payment.php'" style="font-size: 20px">Place Your Order</button></div>
 
 
             <div class="cart">
                 <div style="display: flex; position: absolute;">
 
                     <div class='flex-child'>
-                        <table id="shopping-cart">
+                        <table class="table table-bordered table-hover" id="shopping-cart">
 
                         </table>
                     </div>

@@ -10,17 +10,14 @@
     <script type="text/javascript" src="./js/controller.js"></script>
     <script type="text/javascript" src="./js/drag.js"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     <body>
 
         <?php
         include('bar_with_search.php')
-            ?>
+        ?>
 
         <div class="bottomright">
             <?php
@@ -41,238 +38,110 @@
         </div>
 
         <div class="container">
-            <!-- <div class="container2">
-                <div class="item-list-parent" id="flex-child">
-                    <div>
-                        <div class="item">
-                            <div class="item-img">
-                                <img id="product_0_Dishwasher_599.99" draggable="true"
-                                    ondragstart="drag(event)" src="./images/dishwasher.png">
-                            </div>
-                            <div class="item-desc">
-                                <h2 class="item-list-row" draggable="true" ondragstart="drag(event)" id="product_0">
-                                    Dishwasher</h2>
-                                <h1>$599.99</h1>
-                                <button onclick="updateCart(0, 'Dishwasher', 599.99)" type="button">Add to Cart</button>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="item-img"><img id="product_1_Toaster_29.99" draggable="true"
-                                    ondragstart="drag(event)" src="./images/toaster.jpg"></div>
-                            <div class="item-desc">
-                                <h2 class="item-list-row" draggable="true" ondragstart="drag(event)" id="product_1">
-                                    Toaster</h2>
-                                <h1>$29.99</h1><button onclick="updateCart(1, 'Toaster', 29.99)" type="button">Add to
-                                    Cart</button>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="item-img"><img id="product_2_Blender_59.99" draggable="true"
-                                    ondragstart="drag(event)" src="./images/blender.jpg"></div>
-                            <div class="item-desc">
-                                <h2 class="item-list-row" draggable="true" ondragstart="drag(event)" id="product_2">
-                                    Blender</h2>
-                                <h1>$59.99</h1><button onclick="updateCart(2, 'Blender', 59.99)" type="button">Add to
-                                    Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-list-row">
-                        <div class="item">
-                            <div class="item-img"><img id="product_3_Microwave_99.99" draggable="true"
-                                    ondragstart="drag(event)" src="./images/microwave.jpg"></div>
-                            <div class="item-desc">
-                                <h2 class="item-list-row" draggable="true" ondragstart="drag(event)" id="product_3">
-                                    Microwave</h2>
-                                <h1>$99.99</h1><button onclick="updateCart(3, 'Microwave', 99.99)" type="button">Add to
-                                    Cart</button>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="item-img"><img id="product_4_Coffee-Maker_39.99" draggable="true"
-                                    ondragstart="drag(event)" src="./images/coffeemaker.jpg"></div>
-                            <div class="item-desc">
-                                <h2 class="item-list-row" draggable="true" ondragstart="drag(event)" id="product_4">
-                                    Coffee Maker</h2>
-                                <h1>$39.99</h1><button onclick="updateCart(4, 'Coffee Maker', 39.99)" type="button">Add
-                                    to Cart</button>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="item-img"><img id="product_5_Waffle-Maker_49.99" draggable="true"
-                                    ondragstart="drag(event)" src="./images/wafflemaker.jpg"></div>
-                            <div class="item-desc">
-                                <h2 class="item-list-row" draggable="true" ondragstart="drag(event)" id="product_5">
-                                    Waffle Maker</h2>
-                                <h1>$49.99</h1><button onclick="updateCart(5, 'Waffle Maker', 49.99)" type="button">Add
-                                    to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="item-list-row">
-                        <div class="item">
-                            <div class="item-img"><img id="product_6_Air-Fryer_79.99" draggable="true"
-                                    ondragstart="drag(event)" src="./images/airfryer.jpg"></div>
-                            <div class="item-desc">
-                                <h2 class="item-list-row" draggable="true" ondragstart="drag(event)" id="product_6">Air
-                                    Fryer</h2>
-                                <h1>$79.99</h1><button onclick="updateCart(6, 'Air Fryer', 79.99)" type="button">Add to
-                                    Cart</button>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="item-img"><img id="product_7_Food-Processor_89.99" draggable="true"
-                                    ondragstart="drag(event)" src="./images/foodprocessor.jpg"></div>
-                            <div class="item-desc">
-                                <h2 class="item-list-row" draggable="true" ondragstart="drag(event)" id="product_7">Food
-                                    Processor</h2>
-                                <h1>$89.99</h1><button onclick="updateCart(7, 'Food Processor', 89.99)"
-                                    type="button">Add to Cart</button>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="item-img"><img id="product_8_Slow Cooker_49.99" draggable="true"
-                                    ondragstart="drag(event)" src="./images/slowcooker.jpg"></div>
-                            <div class="item-desc">
-                                <h2 class="item-list-row" draggable="true" ondragstart="drag(event)" id="product_8">Slow
-                                    Cooker</h2>
-                                <h1>$49.99</h1><button onclick="updateCart(8, 'Slow Cooker', 49.99)" type="button">Add
-                                    to Cart</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="topright" id="flex-child" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    <h3 style="text-align: center;"><u>Shopping Cart</u></h3>
-                </div>
-
-            </div> -->
             <div class="container">
                 <div class="row">
                     <div class="col sm-9">
                         <div class="row">
-                            <div class="col">
-                                <div class="item">
-                                    <div class="item-img">
-                                        <img id="product_0_Dishwasher_599.99" draggable="true" ondragstart="drag(event)"
-                                            src="./images/dishwasher.png">
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-img-top">
+                                        <img id="product_0_Dishwasher_599.99" draggable="true" ondragstart="drag(event)" src="./images/dishwasher.png">
                                     </div>
-                                    <div class="item-desc">
-                                        <h2 class="item-list-row">
-                                            Dishwasher</h2>
-                                        <h1>$599.99</h1>
-                                        <button onclick="updateCart(0, 'Dishwasher', 599.99)" type="button">Add to
+                                    <div class="card-body">
+                                        <h2 class="card-title">Dishwasher</h2>
+                                        <h1 class="card-text">$599.99</h1>
+                                        <button class="btn btn-primary" onclick="updateCart(0, 'Dishwasher', 599.99)" type="button">Add to
                                             Cart</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="item">
-                                    <div class="item-img"><img id="product_1_Toaster_29.99" draggable="true"
-                                            ondragstart="drag(event)" src="./images/toaster.jpg"></div>
-                                    <div class="item-desc">
-                                        <h2 class="item-list-row">
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-img-top"><img id="product_1_Toaster_29.99" draggable="true" ondragstart="drag(event)" src="./images/toaster.jpg"></div>
+                                    <div class="card-body">
+                                        <h2 class="card-title">
                                             Toaster</h2>
-                                        <h1>$29.99</h1><button onclick="updateCart(1, 'Toaster', 29.99)"
-                                            type="button">Add to
+                                        <h1 class="card-text">$29.99</h1><button class="btn btn-primary" onclick="updateCart(1, 'Toaster', 29.99)" type="button">Add to
                                             Cart</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="item">
-                                    <div class="item-img"><img id="product_2_Blender_59.99" draggable="true"
-                                            ondragstart="drag(event)" src="./images/blender.jpg"></div>
-                                    <div class="item-desc">
-                                        <h2 class="item-list-row">
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-img-top"><img id="product_2_Blender_59.99" draggable="true" ondragstart="drag(event)" src="./images/blender.jpg"></div>
+                                    <div class="card-body">
+                                        <h2 class="card-title">
                                             Blender</h2>
-                                        <h1>$59.99</h1><button onclick="updateCart(2, 'Blender', 59.99)"
-                                            type="button">Add to
+                                        <h1 class="card-text">$59.99</h1><button class="btn btn-primary" onclick="updateCart(2, 'Blender', 59.99)" type="button">Add to
                                             Cart</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <div class="item">
-                                    <div class="item-img"><img id="product_3_Microwave_99.99" draggable="true"
-                                            ondragstart="drag(event)" src="./images/microwave.jpg"></div>
-                                    <div class="item-desc">
-                                        <h2 class="item-list-row">
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-img-top"><img id="product_3_Microwave_99.99" draggable="true" ondragstart="drag(event)" src="./images/microwave.jpg"></div>
+                                    <div class="card-body">
+                                        <h2 class="card-title">
                                             Microwave</h2>
-                                        <h1>$99.99</h1><button onclick="updateCart(3, 'Microwave', 99.99)"
-                                            type="button">Add to
+                                        <h1 class="card-text">$99.99</h1><button class="btn btn-primary" onclick="updateCart(3, 'Microwave', 99.99)" type="button">Add to
                                             Cart</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="item">
-                                    <div class="item-img"><img id="product_4_Coffee-Maker_39.99" draggable="true"
-                                            ondragstart="drag(event)" src="./images/coffeemaker.jpg"></div>
-                                    <div class="item-desc">
-                                        <h2 class="item-list-row">
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-img-top"><img id="product_4_Coffee-Maker_39.99" draggable="true" ondragstart="drag(event)" src="./images/coffeemaker.jpg"></div>
+                                    <div class="card-body">
+                                        <h2 class="card-title">
                                             Coffee Maker</h2>
-                                        <h1>$39.99</h1><button onclick="updateCart(4, 'Coffee Maker', 39.99)"
-                                            type="button">Add
+                                        <h1>$39.99</h1><button class="btn btn-primary" onclick="updateCart(4, 'Coffee Maker', 39.99)" type="button">Add
                                             to Cart</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="item">
-                                    <div class="item-img"><img id="product_5_Waffle-Maker_49.99" draggable="true"
-                                            ondragstart="drag(event)" src="./images/wafflemaker.jpg"></div>
-                                    <div class="item-desc">
-                                        <h2 class="item-list-row">
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-img-top"><img id="product_5_Waffle-Maker_49.99" draggable="true" ondragstart="drag(event)" src="./images/wafflemaker.jpg"></div>
+                                    <div class="card-body">
+                                        <h2 class="card-title">
                                             Waffle Maker</h2>
-                                        <h1>$49.99</h1><button onclick="updateCart(5, 'Waffle Maker', 49.99)"
-                                            type="button">Add
+                                        <h1>$49.99</h1><button class="btn btn-primary" onclick="updateCart(5, 'Waffle Maker', 49.99)" type="button">Add
                                             to Cart</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <div class="item">
-                                    <div class="item-img"><img id="product_6_Air-Fryer_79.99" draggable="true"
-                                            ondragstart="drag(event)" src="./images/airfryer.jpg"></div>
-                                    <div class="item-desc">
-                                        <h2 class="item-list-row">
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-img-top"><img id="product_6_Air-Fryer_79.99" draggable="true" ondragstart="drag(event)" src="./images/airfryer.jpg"></div>
+                                    <div class="card-body">
+                                        <h2 class="card-title">
                                             Air Fryer</h2>
-                                        <h1>$79.99</h1><button onclick="updateCart(6, 'Air Fryer', 79.99)"
-                                            type="button">Add to
+                                        <h1>$79.99</h1><button class="btn btn-primary" onclick="updateCart(6, 'Air Fryer', 79.99)" type="button">Add to
                                             Cart</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="item">
-                                    <div class="item-img"><img id="product_7_Food-Processor_89.99" draggable="true"
-                                            ondragstart="drag(event)" src="./images/foodprocessor.jpg"></div>
-                                    <div class="item-desc">
-                                        <h2 class="item-list-row">Food
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-img-top"><img id="product_7_Food-Processor_89.99" draggable="true" ondragstart="drag(event)" src="./images/foodprocessor.jpg"></div>
+                                    <div class="card-body">
+                                        <h2 class="card-title">Food
                                             Processor</h2>
-                                        <h1>$89.99</h1><button onclick="updateCart(7, 'Food Processor', 89.99)"
-                                            type="button">Add to Cart</button>
+                                        <h1>$89.99</h1><button class="btn btn-primary" onclick="updateCart(7, 'Food Processor', 89.99)" type="button">Add to Cart</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="item">
-                                    <div class="item-img"><img id="product_8_Slow-Cooker_49.99" draggable="true"
-                                            ondragstart="drag(event)" src="./images/slowcooker.jpg"></div>
-                                    <div class="item-desc">
-                                        <h2 class="item-list-row">Slow
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-img-top"><img id="product_8_Slow-Cooker_49.99" draggable="true" ondragstart="drag(event)" src="./images/slowcooker.jpg"></div>
+                                    <div class="card-body">
+                                        <h2 class="card-title">Slow
                                             Cooker</h2>
-                                        <h1>$49.99</h1><button onclick="updateCart(8, 'Slow Cooker', 49.99)"
-                                            type="button">Add
+                                        <h1>$49.99</h1><button class="btn btn-primary" onclick="updateCart(8, 'Slow Cooker', 49.99)" type="button">Add
                                             to Cart</button>
                                     </div>
                                 </div>
@@ -282,21 +151,13 @@
                     <div class="col col-sm-3">
                         <h3 style="text-align: center;"><u>Shopping Cart</u></h3>
                         <button type="button" class="btn btn-primary" onclick="clearCart()">Clear Cart</button>
-                        <div class="topright shopping-cart" id="shopping-cart" ondrop="drop(event)"
-                            ondragover="allowDrop(event)">
-                            
+                        <div class="topright shopping-cart" id="shopping-cart" ondrop="drop(event)" ondragover="allowDrop(event)">
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- <div class="bottomleft">
-            <h4 style="color: white; text-align: center;">Item Has Been Added To Your Cart</h4>
-        </div>
-        <div class="max-items">
-            <h4 style="color: white; text-align: center;">Max quantity is 5 items</h4>
-        </div> -->
 
         </div>
 
